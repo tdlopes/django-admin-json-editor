@@ -6,7 +6,7 @@
         theme: "bootstrap3",
         iconlib: "fontawesome4",
         schema: {{ schema|safe }},
-        no_additional_properties,
+        no_additional_properties: true,
     };
     var {{ name }}_editor = new JSONEditor(container, options);
     JSONEditor.plugins.sceditor.emoticonsEnabled = {{ sceditor }};
