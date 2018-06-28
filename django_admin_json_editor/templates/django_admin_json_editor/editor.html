@@ -5,7 +5,8 @@
     var options = {
         theme: "bootstrap3",
         iconlib: "fontawesome4",
-        schema: {{ schema|safe }}
+        schema: {{ schema|safe }},
+        no_additional_properties,
     };
     var {{ name }}_editor = new JSONEditor(container, options);
     JSONEditor.plugins.sceditor.emoticonsEnabled = {{ sceditor }};
