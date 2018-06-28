@@ -9,7 +9,7 @@ from django.template.loader import render_to_string
 class JSONEditorWidget(forms.Widget):
     template_name = 'django_admin_json_editor/editor.html'
 
-    def __init__(self, schema, collapsed=True, sceditor=False):
+    def __init__(self, schema, collapsed=False, sceditor=False):
         super(JSONEditorWidget, self).__init__()
         self._schema = schema
         self._collapsed = collapsed

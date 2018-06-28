@@ -58,3 +58,9 @@ target/
 
 .venv
 venv
+
+# IntelIJ
+.idea/
+
+# pyenv
+.python-version
