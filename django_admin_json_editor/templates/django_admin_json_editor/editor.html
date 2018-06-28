@@ -5,10 +5,13 @@
     var options = {
         theme: "bootstrap3",
         iconlib: "fontawesome4",
-        schema: {{ schema|safe }}
+        schema: {{ schema|safe }},
+        disable_properties: true,
+        disable_edit_json: true,
+        no_additional_properties: true,
     };
+    JSONEditor.defaults.language = "es";
     var {{ name }}_editor = new JSONEditor(container, options);
-    JSONEditor.plugins.sceditor.emoticonsEnabled = {{ sceditor }};
     {{ name }}_editor.on('change', function () {
         var errors = {{ name }}_editor.validate();
         if (errors.length) {

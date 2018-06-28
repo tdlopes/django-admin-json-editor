@@ -77,7 +77,7 @@ class JSONModelAdmin(admin.ModelAdmin):
 class ArrayJSONModelAdmin(admin.ModelAdmin):
     def get_form(self, request, obj=None, **kwargs):
         widget = JSONEditorWidget(dynamic_schema, False)
-        form = super().get_form(request, obj, widgets={'roles': widget}, **kwargs)
+        form = super(ArrayJSONModelAdmin).get_form(request, obj, widgets={'roles': widget}, **kwargs)
         return form
 
 
