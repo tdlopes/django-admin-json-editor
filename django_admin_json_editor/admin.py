@@ -9,10 +9,11 @@ from django.template.loader import render_to_string
 class JSONEditorWidget(forms.Widget):
     template_name = 'django_admin_json_editor/editor.html'
 
-    def __init__(self, schema, collapsed=False):
+    def __init__(self, schema, collapsed=False, sceditor=False):
         super(JSONEditorWidget, self).__init__()
         self._schema = schema
         self._collapsed = collapsed
+        self._sceditor = sceditor
 
     def render(self, name, value, attrs=None, renderer=None):
         if callable(self._schema):
@@ -28,7 +29,8 @@ class JSONEditorWidget(forms.Widget):
         context = {
             'name': name,
             'schema': schema,
-            'data': value
+            'data': value,
+            'sceditor': int(self._sceditor),
         }
         return mark_safe(render_to_string(self.template_name, context))
 
@@ -56,4 +58,7 @@ class JSONEditorWidget(forms.Widget):
             'django_admin_json_editor/bootstrap/js/bootstrap.min.js',
             'django_admin_json_editor/jsoneditor/jsoneditor.min.js',
         ]
+        if self._sceditor:
+            css['all'].append('django_admin_json_editor/sceditor/themes/default.min.css')
+            js.append('django_admin_json_editor/sceditor/jquery.sceditor.bbcode.min.js')
         return forms.Media(css=css, js=js)
