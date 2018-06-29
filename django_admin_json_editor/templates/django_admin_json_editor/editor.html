@@ -24,7 +24,7 @@
         }
     });
     {% if data %}
-        var json = {{ data|jsonify }};
+        var json = JSON.parse({{ data|jsonify }});
         {{ name }}_editor.setValue(json);
     {% endif %}
 </script>
