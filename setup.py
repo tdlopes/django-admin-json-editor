@@ -38,5 +38,5 @@ setup(
         'Topic :: Internet :: WWW/HTTP',
         'Topic :: Internet :: WWW/HTTP :: Dynamic Content',
     ],
-    install_requires=['Django'],
+    install_requires=['Django', 'django-jsonify==0.2.1'],
 )

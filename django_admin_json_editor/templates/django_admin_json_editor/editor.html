@@ -1,5 +1,5 @@
+{% load jsonify %}
 <div id="{{ name }}_editor" class="json-admin-editor"></div>
-
 <script>
     var container = document.getElementById("{{ name }}_editor");
     var options = {
@@ -23,10 +23,10 @@
         }
     });
     {% if data %}
-        var json = JSON.parse({{ data|safe }});
+        var json = JSON.parse({{ data|jsonify }});
         {{ name }}_editor.setValue(json);
     {% endif %}
 </script>
 
 <textarea cols="40" id="id_{{ name }}" name="{{ name }}" rows="10" required=""
-          style="display: none">{{ data|safe }}</textarea>
+          style="display: none">{{ data|jsonify }}</textarea>
