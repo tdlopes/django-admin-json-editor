@@ -3,11 +3,7 @@ from django.contrib.postgres.fields import JSONField
 
 
 class JSONModel(models.Model):
-    data = JSONField(default={
-        'text': 'some text',
-        'status': False,
-        'html': '<h1>Default</h1>',
-    })
+    data = JSONField(default={})
 
 
 class ArrayJSONModel(models.Model):

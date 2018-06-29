@@ -7,6 +7,8 @@
         iconlib: "fontawesome4",
         schema: {{ schema|safe }},
         no_additional_properties: true,
+        disable_edit_json: true,
+        disable_collapse: true
     };
     var {{ name }}_editor = new JSONEditor(container, options);
     JSONEditor.plugins.sceditor.emoticonsEnabled = {{ sceditor }};

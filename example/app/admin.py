@@ -10,25 +10,15 @@ DATA_SCHEMA = {
     'type': 'object',
     'title': 'Data',
     'properties': {
-        'text': {
-            'title': 'Some text',
+        'color': {
+            'title': 'Color',
             'type': 'string',
-            'format': 'textarea',
         },
-        'status': {
-            'title': 'Status',
-            'type': 'boolean',
-        },
-        'html': {
-            'title': 'HTML',
-            'type': 'string',
-            'format': 'html',
-            'options': {
-                'wysiwyg': 1,
-            }
-        },
-    },
-    'required': ['text']
+        'size': {
+            'title': 'Size',
+            'type': 'string'
+        }
+    }
 }
 
 
@@ -60,11 +50,12 @@ def dynamic_schema(widget):
 
 
 class JSONModelAdminForm(forms.ModelForm):
+
     class Meta:
         model = JSONModel
         fields = '__all__'
         widgets = {
-            'data': JSONEditorWidget(DATA_SCHEMA, collapsed=False, sceditor=True),
+            'data': JSONEditorWidget(DATA_SCHEMA),
         }
 
 
@@ -77,7 +68,7 @@ class JSONModelAdmin(admin.ModelAdmin):
 class ArrayJSONModelAdmin(admin.ModelAdmin):
     def get_form(self, request, obj=None, **kwargs):
         widget = JSONEditorWidget(dynamic_schema, False)
-        form = super().get_form(request, obj, widgets={'roles': widget}, **kwargs)
+        form = super(ArrayJSONModelAdmin).get_form(request, obj, widgets={'roles': widget}, **kwargs)
         return form
 
 
