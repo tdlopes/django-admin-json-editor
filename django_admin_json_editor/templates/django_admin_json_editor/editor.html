@@ -1,4 +1,4 @@
-<div id="{{ name }}_editor"></div>
+<div id="{{ name }}_editor" class="json-admin-editor"></div>
 
 <script>
     var container = document.getElementById("{{ name }}_editor");
@@ -23,7 +23,7 @@
         }
     });
     {% if data %}
-        var json = {{ data|safe }};
+        var json = JSON.parse({{ data|safe }});
         {{ name }}_editor.setValue(json);
     {% endif %}
 </script>

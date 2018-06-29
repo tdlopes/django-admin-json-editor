@@ -64,3 +64,6 @@ venv
 
 # pyenv
 .python-version
+
+# Tox
+.pytest_cache/
