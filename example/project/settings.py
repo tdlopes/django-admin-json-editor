@@ -29,6 +29,7 @@ INSTALLED_APPS = [
     'django_admin_json_editor',
 
     'app',
+    'jsonify'
 ]
 
 MIDDLEWARE_CLASSES = [

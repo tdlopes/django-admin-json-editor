@@ -1,3 +1,4 @@
+{% load jsonify %}
 <div id="{{ name }}_editor" class="json-admin-editor"></div>
 
 <script>
@@ -5,7 +6,7 @@
     var options = {
         theme: "bootstrap3",
         iconlib: "fontawesome4",
-        schema: {{ schema|safe }},
+        schema: {{ schema|jsonify }},
         no_additional_properties: true,
         disable_edit_json: true,
         disable_collapse: true
@@ -23,7 +24,7 @@
         }
     });
     {% if data %}
-        var json = {{ data|safe }};
+        var json = {{ data|jsonify }};
         {{ name }}_editor.setValue(json);
     {% endif %}
 </script>
