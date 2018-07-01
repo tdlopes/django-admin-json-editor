@@ -23,10 +23,10 @@
         }
     });
     {% if data %}
-        var json = JSON.parse({{ data|jsonify }});
+        var json = JSON.parse({{ data|safe }});
         {{ name }}_editor.setValue(json);
     {% endif %}
 </script>
 
 <textarea cols="40" id="id_{{ name }}" name="{{ name }}" rows="10" required=""
-          style="display: none">{{ data|jsonify }}</textarea>
+          style="display: none">{{ data|safe }}</textarea>

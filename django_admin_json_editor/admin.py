@@ -30,7 +30,7 @@ class JSONEditorWidget(forms.Widget):
         context = {
             'name': name,
             'schema': schema,
-            'data': mark_safe(json.dumps(value)),
+            'data': mark_safe(json.dumps(value, ensure_ascii=False)),
             'sceditor': int(self._sceditor),
         }
         return mark_safe(render_to_string(self.template_name, context))
