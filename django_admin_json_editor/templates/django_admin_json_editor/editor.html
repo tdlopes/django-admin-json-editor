@@ -1,4 +1,3 @@
-{% load jsonify %}
 <div id="{{ name }}_editor" class="json-admin-editor"></div>
 <script>
     var container = document.getElementById("{{ name }}_editor");
@@ -23,7 +22,7 @@
         }
     });
     {% if data %}
-        var json = JSON.parse({{ data|safe }});
+        var json = {{ data|safe }};
         {{ name }}_editor.setValue(json);
     {% endif %}
 </script>
