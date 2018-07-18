@@ -28,7 +28,8 @@ class JSONEditorWidget(forms.Widget):
         schema['options'] = {'collapsed': int(self._collapsed)}
 
         context = {
-            'name': name.replace('-', '_'),
+            'input_name': name,
+            'editor_name': name.replace('-', '_'),
             'schema': json.dumps(schema),
             'data': json.dumps(value),
             'sceditor': int(self._sceditor),
