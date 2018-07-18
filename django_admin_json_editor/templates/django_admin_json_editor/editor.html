@@ -17,8 +17,14 @@
             console.log(errors);
         }
         else {
-            var json = {{ editor_name }}_editor.getValue();
-            document.getElementById("id_{{ input_name }}").value = JSON.stringify(json);
+            var timer = setInterval(function(){
+                var json = {{ editor_name }}_editor.getValue();
+                var input = document.getElementById("id_{{ input_name }}");
+                if (input != null) {
+                    input.value = JSON.stringify(json);
+                    clearInterval(timer)
+                }
+            }, 200);
         }
     });
     {% if data %}
