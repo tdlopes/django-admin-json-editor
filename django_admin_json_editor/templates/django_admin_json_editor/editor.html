@@ -17,7 +17,7 @@
             console.log(errors);
         }
         else {
-            var json = {{ name }}_editor.getValue();
+            var json = {{ editor_name }}_editor.getValue();
             document.getElementById("id_{{ input_name }}").value = JSON.stringify(json);
         }
     });
